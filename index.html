@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Future Diary - Fan Website</title>
+    <link rel="stylesheet" href="style.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <img src="logo.png" alt="Future Diary Logo" class="logo"></img>
+
+         <div class="container_upperhead">
+                <button onclick="scrollToCharacters()">Know Characters</button>
+        </div>
+    </header>
+        <div class="headpart">
+            <img src="wallpapertrial2.jpg" alt="Yuno Gasai-Future Diary" >
+
+            <div class="video-button-container">
+                <a href="https://youtu.be/2Bo9b85f9cY?si=qpzwIwKhHFofUuFZ" target="_blank" class="video-button">
+                    <span class="play-icon">▶</span>
+                    <span class="hover-text">View Trailer</span>
+                </a>
+            </div>
+
+            <h1 class="upperhead_text1">WELCOME!</h1>
+            <pre class="upperhead_text2">This is a fan website with the purpose to inform
+about Future Diary characters: Main protagonists,
+and diary holders.
+Come and delve as we continue to explore this 
+amazing world of diary experience.
+            </pre>
+            <pre class="text3">SPOILER ALERT: THIS WEBSITE CONTAINS SPOILERS
+                SCROLL AT YOUR OWN RISK!
+                        </pre>
+        </div>
+        <br>
+        
+        <div class="container_character2"></div>
+        
+        <h1 id="text4">CHARACTERS</h1>
+        <div class="container_character">
+            <img src="charlog.png" class="charlog">
+        </div>
+
+        <br>
+        <br>
+
+        <ul>
+            <li onclick="showmainprotagonistsection1()"><u>Protagonists</u></li>
+            <li onclick="showdiaryholders()"><u>Diary Holders</u></li>
+        </ul>
+        
+        <div class="main-protagonist-section" id="mainprotagonistsection1">
+            <div class="male-lead" onclick="window.location.href='yuki.html'"><h1 class="yukitext"><u>Yukiteru</u></h1></div>   
+            <div class="female-lead" onclick="window.location.href='yuno.html'"><h1 class="yunotext"><u>Yuno</u></h1></div>
+        </div>
+        
+        <div class="diary-holders-section" id="diaryholders" style="display: none;">
+            <div class="carousel">
+                <div class="holder_slots">
+                    <div class="holder1" onclick="window.location.href='yuki.html'">Yukiteru</div>
+                    <div class="holder2" onclick="window.location.href='yuno.html'">Yuno</div>
+                    <div class="holder3" onclick="window.location.href='takao.html'">Takao</div>
+                    <div class="holder4" onclick="window.location.href='keigo.html'">Keigo</div>
+                    <div class="holder5" onclick="window.location.href='reisuke.html'">Reisuke</div>
+                    <div class="holder6" onclick="window.location.href='tsubaki.html'">Tsubaki</div>
+                    <div class="holder7" onclick="window.location.href='marco.html'">Marco</div>
+                    <div class="holder8" onclick="window.location.href='kamado.html'">Kamado</div>
+                    <div class="holder9" onclick="window.location.href='minene.html'">Minene</div>
+                    <div class="holder10" onclick="window.location.href='karyuudo.html'">Karyuudo</div>
+                    <div class="holder11" onclick="window.location.href='john.html'">John</div>
+                    <div class="holder12" onclick="window.location.href='yomotsu.html'">Yomotsu</div>
+                </div>
+                
+            </div>
+            <div class="cuboid" id="cuboid"></div>
+        </div>
+        <footer>
+            <img src="logo.png" alt="Future Diary Logo" class="logo_footer">
+
+
+            <h1 class="ctto">ALL CREDITS TO <span style="color: #FFC0CB; font-weight: bold; text-shadow: 1px 1px 3px #9D4491;">SAKAE ESUNO</span></h1>
+            <h1 class="ctto_esuno">THE WRITER AND ILLUSTRATOR OF FUTURE</h1>
+            <h1 class="ctto_esuno">DIARY: MIRAI NIKKI</h1>
+
+            <p class="ctto_levi">WEBSITE DEVELOPED AND DESIGNED BY <span style="color: #FFC0CB; font-weight: bold; text-shadow: 1px 1px 3px #9D4491;">JERENZE LEVI</span></p>
+        </footer>
+</body>
+</html>

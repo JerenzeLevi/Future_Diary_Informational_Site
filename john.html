@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Future Diary Carousel</title>
+  <style>
+    body {
+      margin: 0;
+      background-color: rgb(39, 34, 31);
+      font-family: 'Playfair Display', serif;
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 30px;
+      background-color: rgb(39, 34, 31);
+    }
+
+    .logo {
+      width: 5cm;
+    }
+
+    .upperhead_text1 {
+      font-size: 150%;
+      font-family: 'Courier New', Courier, monospace;
+      color: rgb(219, 211, 232);
+    }
+
+    .container_upperhead button {
+      background: linear-gradient(45deg, black, rgb(157, 68, 145));
+      color: white;
+      border: 2px solid rgb(157, 68, 145);
+      padding: 20px 90px;
+      font-size: 16px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 40px;
+      transition: all 0.3s ease;
+    }
+
+    .container_upperhead button:hover {
+      background: white;
+      color: rgb(157, 68, 145);
+    }
+
+    .carousel {
+      max-width: 800px;
+      margin: 100px auto;
+      position: relative;
+    }
+
+    .slide {
+      display: none;
+    }
+
+    .slide.active {
+      display: block;
+    }
+
+    .carousel img {
+      max-height: 300px;
+    }
+
+    .character-title {
+      font-size: 24px;
+      font-family: 'Courier New', Courier, monospace;
+      margin-left: 100px;
+      font-size: 40px;
+    }
+
+    .go-button {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    
+    .go-button_yuki {
+      background-color: #1e90ff;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_yuki:hover {
+      background-color: white;
+      color: royalblue;
+    }
+    .go-button_yuno {
+      background-color: pink;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_yuno:hover {
+      background-color: white;
+      color: pink;
+    }
+    .go-button_takao {
+      background-color: #C2775A;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_takao:hover {
+      background-color: white;
+      color: #C2775A;
+    }
+    .go-button_keigo {
+      background-color: #505B7D;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_keigo:hover {
+      background-color: white;
+      color: #505B7D;
+    }
+    .go-button_reisuke {
+      background-color: #A9DC9F;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_reisuke:hover {
+      background-color: white;
+      color: #A9DC9F;
+    }
+    .go-button_tsubaki {
+      background-color: #DD664D;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_tsubaki:hover {
+      background-color: white;
+      color: #DD664D;
+    }
+    .go-button_marco {
+      background-color: #D3C49C;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_marco:hover {
+      background-color: white;
+      color: #D3C49C;
+    }
+    .go-button_kamado {
+      background-color: #DD664D;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_kamado:hover {
+      background-color: white;
+      color: #DD664D;
+    }
+    .go-button_minene {
+      background-color: #553360;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_minene:hover {
+      background-color: white;
+      color: #553360;
+    }
+    .go-button_karyuudo {
+      background-color: #C1B5C0;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_karyuudo:hover {
+      background-color: white;
+      color: #C1B5C0;
+    }
+    .go-button_john {
+      background-color: #15090A;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_john:hover {
+      background-color: white;
+      color: #15090A;
+    }
+    .go-button_yomotsu {
+      background-color: #F9FEDE;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 5px;
+      margin-left: 160px;
+      white-space: nowrap;        
+      width: fit-content;          
+      align-self: flex-start; 
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease, color 0.3s ease;
+    }
+    .go-button_yomotsu:hover {
+      background-color: white;
+      color: #F9FEDE;
+    }
+
+    .dots {
+      margin-top: 20px;
+    }
+
+    .dot {
+      height: 10px;
+      width: 10px;
+      margin: 0 5px;
+      background-color: white;
+      border-radius: 50%;
+      display: inline-block;
+    }
+
+    .dot.active {
+      background-color: gray;
+    }
+
+    .arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 24px;
+      color: white;
+      cursor: pointer;
+      user-select: none;
+    }
+
+    .left-arrow {
+      left: 0;
+    }
+
+    .right-arrow {
+      right: 0;
+    }
+    .slide-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      text-align: left;
+    }
+
+    .text-side {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 10px;
+      padding-left: 20px;
+      flex: 1;
+    }
+
+
+    .slide_pic{
+        width: 300px;    
+    }
+    .container {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      padding: 60px 80px 20px;
+      box-sizing: border-box;
+    }
+
+    .text-section {
+      max-width: 50%;
+    }
+
+    .text-section h2 {
+      font-size: 28px;
+      color: #15090A;
+      font-weight: bolder;
+      margin: 0;
+      text-shadow: 1px 1px 3px white;
+    }
+
+    .text-section h1 {
+      font-size: 64px;
+      font-weight: bold;
+      margin: 10px 0;
+      line-height: 1.1;
+    }
+
+    .text-section p {
+      font-size: 18px;
+      line-height: 1.6;
+      color: #d9d9d9;
+      margin-top: 20px;
+      max-width: 90%;
+      margin-left: 30px;
+      text-align: justify;
+    }
+
+    .diary-title {
+      margin-top: 40px;
+      font-size: 32px;
+      color: #15090A;
+      font-weight: bold;
+      border-bottom: 6px solid white;
+      display: inline-block;
+      padding-bottom: 5px;
+      text-shadow: 1px 1px 3px white;
+    }
+
+    .diary-power {
+      font-size: 26px;
+      font-weight: bold;
+      margin-top: 20px;
+    }
+
+    .image-section {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .prof-line {
+      height: 6px;
+      background-color: #15090A;
+      width: 100%;
+      margin: 0 auto;
+    }
+
+    .image-section img {
+      max-width: 500px;
+      height: auto;
+      display: block;
+    }
+
+    .view-more {
+      text-align: center;
+      margin-top: 50px;
+      font-style: italic;
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    .view-more a {
+      color: white;
+      text-decoration: underline;
+    }
+
+    @media screen and (max-width: 900px) {
+      .container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .text-section, .image-section {
+        max-width: 100%;
+      }
+
+      .image-section img {
+        margin-top: 20px;
+      }
+
+      .view-more {
+        margin-top: 40px;
+      }
+    }
+    footer {
+    color: #9D4491;
+    text-align: center;
+    font-weight: bold;
+    
+    font-family: 'Poppins', sans-serif;
+    
+}
+.ctto, .ctto_esuno{
+    line-height: 10px;
+}
+.ctto{
+    font-size: 30px;
+}
+.ctto_esuno{
+    font-size: 22px;
+}
+
+.ctto_levi{
+    font-size: 20px;
+    padding-top: 40px;
+}
+.logo_footer{
+    width: 7cm;
+    border: 0;
+    margin: 0;
+    padding-top: 80px;
+    padding-bottom: 40px;
+    background-color:transparent;
+    justify-content: center;
+}
+
+  </style>
+</head>
+<body>
+  <header>
+    <img src="logo.png" alt="Future Diary Logo" class="logo">
+    <h1 class="upperhead_text1">Characters</h1>
+    <div class="container_upperhead">
+      <button onclick="moveToHome()">Home</button>
+    </div>
+  </header>
+
+  <div class="container">
+    <div class="text-section">
+      <h2>The Eleventh</h2>
+      <h1>JOHN BACCHUS</h1>
+      <p>John Bacchus (ジョン バックス, Jon Bakkusu) is finally revealed in chapter thirty-six as the mayor of Sakurami. He uses his influence to take down the other diary holders. His Diary abilities have yet been detailed yet so far with its power he has been able to counter everything thrown at him, unless for unexplained reasons if Masumi is involved, described as the Watcher Diary, this and its inability to predict Masumi the only person who involved who didn't have a Diary may mean that his power is to read other peoples Diaries. He can read both Future Diaries and Apprentice Diaries. However, he is able to move the voters with his words alone to demolish Mother's Home and even convince Deus to remove the First and Second because of their absences. His true goal has later been revealed that he wished to use the 8th's diary to hook up with a super computer, given everyone in the city the potential to becoming a Apprentice Diary Holder to hope to make a new and great kingdom that he will rule, probably a ruse to ensure his winning the game as giving everyone a Diary means he can access all their information the same way 6th could with her diary. Interestingly, the Eighth considers him to be a gentleman.</p>
+      <div class="diary-title">DIARY POWER</div>
+      <div class="diary-power">Watcher Diary</div>
+    </div>
+
+    <div class="image-section">
+      <div class="prof-line"></div>
+      <img src="avatar11.png" alt="Yukiteru Amano">
+      <div class="prof-line"></div>
+    </div>
+  </div>
+
+  <div class="view-more">
+    <a href="https://futurediary.fandom.com/wiki/John_Bacchus" style="color: white; font-size: 38px;">View More</a>
+  </div>
+
+
+  <div class="carousel">
+    <div class="slide active">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: royalblue;">The First</div>
+          <br>
+          <button class="go-button_yuki" onclick="window.location.href='yuki.html'">GO</button>
+        </div>
+        <img src="avatar1.png" alt="Yukiteru Amano" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: pink;">The Second</div>
+          <br>
+          <button class="go-button_yuno" onclick="window.location.href='yuno.html'">GO</button>
+        </div>
+        <img src="avatar2.png" alt="Yuno Gasai" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #C2775A;">The Third</div>
+          <br>
+          <button class="go-button_takao" onclick="window.location.href='takao.html'">GO</button>
+        </div>
+       <img src="avatar3.png" alt="Takao Hiyama" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #505B7D;">The Fourth</div>
+          <br>
+          <button class="go-button_keigo" onclick="window.location.href='keigo.html'">GO</button>
+        </div>
+        <img src="avatar4.png" alt="Keigo Kurusu" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #A9DC9F;">The Fifth</div>
+          <br>
+          <button class="go-button_reisuke" onclick="window.location.href='reisuke.html'">GO</button>
+        </div>
+        <img src="avatar5.png" alt="Reisuke Houjou" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #DD664D;">The Sixth</div>
+          <br>
+          <button class="go-button_tsubaki" onclick="window.location.href='tsubaki.html'">GO</button>
+        </div>
+        <img src="avatar6.png" alt="Tsubaki Kasugano" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #D3C49C;">The Seventh</div>
+          <br>
+          <button class="go-button_marco" onclick="window.location.href='marco.html'">GO</button>
+        </div>
+        <img src="avatar7.png" alt="Marco ikusaba" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #B8725E;">The Eigth</div>
+          <br>
+          <button class="go-button_kamado" onclick="window.location.href='kamado.html'">GO</button>
+        </div>
+        <img src="avatar8.png" alt="Kamado Ueshita" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #553360;">The Ninth</div>
+          <br>
+          <button class="go-button_minene" onclick="window.location.href='minene.html'">GO</button>
+        </div>
+        <img src="avatar9.png" alt="Minene Uryu" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #C1B5C0;">The Tenth</div>
+          <br>
+          <button class="go-button_karyuudo" onclick="window.location.href='karyuudo.html'">GO</button>
+        </div>
+        <img src="avatar10.png" alt="Karyuudo Tsukishima" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #15090A;">The Eleventh</div>
+          <br>
+          <button class="go-button_john" onclick="window.location.href='john.html'">GO</button>
+        </div>
+        <img src="avatar11.png" alt="John Bacchus" class="slide_pic">
+      </div>
+    </div>
+    <div class="slide">
+      <div class="slide-content">
+        <div class="text-side">
+          <div class="character-title" style="font-weight: bold; color: #F9FEDE;">The Twelfth</div>
+          <br>
+          <button class="go-button_yomotsu" onclick="window.location.href='yomotsu.html'">GO</button>
+        </div>
+        <img src="avatar12.png" alt="Yomotsu Hirasaka" class="slide_pic">
+      </div>
+    </div>
+
+    <span class="arrow left-arrow" onclick="changeSlide(-1)">&#10094;</span>
+    <span class="arrow right-arrow" onclick="changeSlide(1)">&#10095;</span>
+
+    <div class="dots">
+      <span class="dot active" onclick="goToSlide(0)"></span>
+      <span class="dot" onclick="goToSlide(1)"></span>
+      <span class="dot" onclick="goToSlide(2)"></span>
+      <span class="dot" onclick="goToSlide(3)"></span>
+      <span class="dot" onclick="goToSlide(4)"></span>
+      <span class="dot" onclick="goToSlide(5)"></span>
+      <span class="dot" onclick="goToSlide(6)"></span>
+      <span class="dot" onclick="goToSlide(7)"></span>
+      <span class="dot" onclick="goToSlide(8)"></span>
+      <span class="dot" onclick="goToSlide(9)"></span>
+      <span class="dot" onclick="goToSlide(10)"></span>
+      <span class="dot" onclick="goToSlide(11)"></span>
+    </div>
+  </div>
+
+  <footer>
+            <img src="logo.png" alt="Future Diary Logo" class="logo_footer">
+
+
+            <h1 class="ctto">ALL CREDITS TO <span style="color: #FFC0CB; font-weight: bold; text-shadow: 1px 1px 3px #9D4491;">SAKAE ESUNO</span></h1>
+            <h1 class="ctto_esuno">THE WRITER AND ILLUSTRATOR OF FUTURE</h1>
+            <h1 class="ctto_esuno">DIARY: MIRAI NIKKI</h1>
+
+            <p class="ctto_levi">WEBSITE DEVELOPED AND DESIGNED BY <span style="color: #FFC0CB; font-weight: bold; text-shadow: 1px 1px 3px #9D4491;">JERENZE LEVI</span></p>
+        </footer>
+
+  <script>
+    
+    let currentSlide = 0;
+    const slides = document.querySelectorAll('.slide');
+    const dots = document.querySelectorAll('.dot');
+
+    function showSlide(index) {
+      slides.forEach((slide, i) => {
+        slide.classList.toggle('active', i === index);
+        dots[i].classList.toggle('active', i === index);
+      });
+      currentSlide = index;
+    }
+
+    function changeSlide(step) {
+      let newIndex = (currentSlide + step + slides.length) % slides.length;
+      showSlide(newIndex);
+    }
+
+    function goToSlide(index) {
+      showSlide(index);
+    }
+
+    setInterval(() => {
+      changeSlide(1);
+    }, 8000);
+
+    function moveToHome() {
+      window.location.href = "index.html"; // adjust path to your home page if needed
+    }
+  </script>
+</body>
+</html>
