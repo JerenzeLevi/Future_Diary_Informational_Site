@@ -42,12 +42,11 @@ Initially conceptualized on Wix, this site was completely rebuilt from the groun
 ### ⚠️ Note on Repository Structure
 > **Full Disclosure:** The file organization and commit history for this project might look a bit "messy." At the time of this upload, I was still navigating the complexities of **Git** and **GitHub** workflows. 
 >
-> I’ve kept the structure as-is to preserve the authenticity of my learning journey—from first-year student to the developer I am today!
+> I’ve kept the structure as-is to preserve the authenticity of my learning journey—from first-year student to the novice developer I am today!
 
 ---
 
 ### 🚀 Quick Links
-* **Live Demo:** [Insert Link if hosted on GitHub Pages]
 * **Technologies:** HTML5, CSS3, JavaScript
 
 <p align="center">
